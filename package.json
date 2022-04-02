@@ -1,0 +1,32 @@
+{
+  "name": "jokebot",
+  "version": "1.0.0",
+  "description": "sends a random joke to a telegram chat",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "git pull && npm i && tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tschlumpf/jokeBot.git"
+  },
+  "author": "tschlumpf",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tschlumpf/jokeBot/issues"
+  },
+  "homepage": "https://github.com/tschlumpf/jokeBot#readme",
+  "dependencies": {
+    "@types/node-telegram-bot-api": "^0.56.0",
+    "axios": "^0.26.1",
+    "dotenv": "^16.0.0",
+    "node-telegram-bot-api": "^0.56.0",
+    "winston": "^3.6.0"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.17.0",
+    "@typescript-eslint/parser": "^5.17.0",
+    "eslint": "^8.12.0"
+  }
+}
