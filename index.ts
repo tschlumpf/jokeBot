@@ -10,7 +10,7 @@ const bot = new TelegramBot(config.telegram.token, { polling: true, });
 
 logger.info(`${__filename} started.`);
 
-["exit", "uncaughtException", "SIGINT", "SIGTERM", "SIGKILL"].forEach(signal => {
+["exit", "uncaughtException", "SIGINT", "SIGTERM"].forEach(signal => {
   process.on(signal, (code, origin) => {
     if (code !== 420) {
       logger.info(`${__filename} finished (${origin ? origin + ": " : ""}${code})`);
