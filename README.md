@@ -9,7 +9,7 @@ Get a random joke from one of these APIs:
 * https://v2.jokeapi.dev/
 
 ### `/flachwitz`
-Get a anti-joke (german: Flachwitz) from [here](https://github.com/derphilipp/Flachwitze).
+Get na anti-joke (german: Flachwitz) from [here](https://github.com/derphilipp/Flachwitze).
 
 ## Requirements:
 - [node.js](https://nodejs.org/en/)
