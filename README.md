@@ -26,5 +26,16 @@ TG_API_TOKEN=123456789:abcdefghijklmnopqrstuvwxyzABCDEFGHIJ
 git clone https://github.com/tschlumpf/jokeBot.git
 cd jokeBot
 npm run build
-node .
+```
+
+### systemd service
+```sh
+bash createSystemdService.sh
+# check the output!
+cat jokeBot.service
+sudo cp jokeBot.service /etc/systemd/system
+sudo chmod 664 /etc/systemd/system/jokeBot.service
+sudo systemctl daemon-reload
+sudo systemctl enable jokeBot.service
+sudo systemctl start jokeBot.service
 ```
