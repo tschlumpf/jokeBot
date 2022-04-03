@@ -11,6 +11,9 @@ Get a random joke from one of these APIs:
 ### `/flachwitz`
 Get an anti-joke (german: Flachwitz) from [here](https://github.com/derphilipp/Flachwitze).
 
+### `/witz`
+Get a german joke from [here](https://github.com/tschlumpf/deutsche-Witze).
+
 ## Requirements:
 - [node.js](https://nodejs.org/en/)
 - [Typescript](https://www.typescriptlang.org/download)
