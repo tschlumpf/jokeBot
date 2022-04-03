@@ -45,6 +45,7 @@ function download() {
         if (FLACHWITZE == null || FLACHWITZE.length === 0) {
           reject(new Error("no flachwitze found."));
         }
+        logger.info(`${FLACHWITZE.length} Flachwitze found.`);
         FLACHWITZE_TIMESTAMP = new Date();
         resolve(true);
       })
