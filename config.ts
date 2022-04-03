@@ -1,7 +1,8 @@
 import 'dotenv/config';
 import { AxiosRequestConfig } from "axios";
+import { ApiConfig, DenyAllowList } from './src/types';
 
-const config = {
+export default {
   debug: process.env.TG_JOKE_DEBUG?.toLowerCase() === "true" ? true : false,
   apis: <ApiConfig[]>[
     { name: "Your Mother Joke", url: "https://yomomma-api.herokuapp.com/jokes" },
@@ -9,7 +10,10 @@ const config = {
     { name: "Chuck Norris Joke", url: "https://api.chucknorris.io/jokes/random", property: "value" },
     { name: "Random Joke", url: "https://v2.jokeapi.dev/joke/Any?type=single" }
   ],
-  flachwitze: "https://raw.githubusercontent.com/derphilipp/Flachwitze/main/README.md",
+  flachwitze: {
+    url: "https://raw.githubusercontent.com/derphilipp/Flachwitze/main/README.md",
+    durability: 12 * 60 * 60 * 1000 // 12 hours
+  },
   axiosConfigs: {
     apis: <AxiosRequestConfig>{
       headers: {
@@ -29,22 +33,13 @@ const config = {
     token: process.env.TG_API_TOKEN,
     disable_notification: true,
     parse_mode: "HTML",
-    list: <List>{
+    list: <DenyAllowList>{
       type: "disabled", // "allow", "deny" or "disabled"
       ids: []
     },
   },
 };
 
-export default config;
 
-type ApiConfig = {
-  name: string,
-  url: string,
-  property?: string // property within the answer which contains the joke
-}
 
-type List = {
-  type: "allow" | "deny" | "disabled",
-  ids: number[]
-}
+

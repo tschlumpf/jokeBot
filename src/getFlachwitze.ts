@@ -3,13 +3,11 @@ import axios from "axios";
 import logger from "../src/logger";
 
 const FLACHWITZE: string[] = [];
-let FLACHWITZE_TIMESTAMP: Date | undefined;
-// const FLACHWITZE_MAX_AGE = 1 * 60 * 60 * 1000; // 1 hour
-const FLACHWITZE_MAX_AGE = 1 * 60 * 1000; // 1 min
+let FLACHWITZE_TIMESTAMP: Date = new Date(1990, 1, 1);
 
 const regexFw = /- (.+)/g;
 
-export default function getFlachwitz() {
+export default function getFlachwitz(): Promise<string> {
   return new Promise((resolve, reject) => {
     download()
       .then(() => {
@@ -24,8 +22,8 @@ export default function getFlachwitz() {
 
 function download() {
   return new Promise((resolve, reject) => {
-    if (FLACHWITZE.length > 0 && FLACHWITZE_TIMESTAMP &&
-      new Date().getTime() - FLACHWITZE_TIMESTAMP.getTime() > FLACHWITZE_MAX_AGE) {
+    if (FLACHWITZE.length > 0 &&
+      new Date().getTime() - FLACHWITZE_TIMESTAMP.getTime() > config.flachwitze.durability) {
 
       logger.info("Flachwitze expired.");
     } else if (FLACHWITZE.length > 0) {
@@ -37,7 +35,7 @@ function download() {
     }
 
     logger.info("Download Flachwitze.");
-    axios.get(config.flachwitze, config.axiosConfigs.flachwitz)
+    axios.get(config.flachwitze.url, config.axiosConfigs.flachwitz)
       .then(function (response) {
         const matches = response.data.matchAll(regexFw);
         for (const match of matches) {
