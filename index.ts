@@ -2,6 +2,7 @@ import config from "./config";
 import TelegramBot from "node-telegram-bot-api";
 import getJoke from "./src/getJoke";
 import getFlachwitz from "./src/getFlachwitze";
+import getGermanJokes from "./src/getGermanJokes";
 import logger from "./src/logger";
 import checkPermissionAndSend from "./src/checkPermissionAndSend";
 
@@ -23,6 +24,11 @@ function main() {
   bot.onText(/\/flachwitz$/, (msg) => {
     // command /falchwitz
     checkPermissionAndSend(bot, msg, getFlachwitz);
+  });
+
+  bot.onText(/\/witz$/, (msg) => {
+    // command: /witz
+    checkPermissionAndSend(bot, msg, getGermanJokes);
   });
 
   bot.onText(/\/joke$/, (msg) => {

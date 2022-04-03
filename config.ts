@@ -14,6 +14,10 @@ export default {
     url: "https://raw.githubusercontent.com/derphilipp/Flachwitze/main/README.md",
     durability: 12 * 60 * 60 * 1000 // 12 hours
   },
+  germanJokes: {
+    url: "https://raw.githubusercontent.com/tschlumpf/deutsche-Witze/main/witze.json",
+    durability: 12 * 60 * 60 * 1000 // 12 hours
+  },
   axiosConfigs: {
     apis: <AxiosRequestConfig>{
       headers: {
