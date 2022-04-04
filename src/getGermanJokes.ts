@@ -10,7 +10,7 @@ export default function getGermanJokes(): Promise<string> {
     download()
       .then(() => {
         const randomIdx = Math.floor(Math.random() * JOKES.length);
-        resolve(JOKES[randomIdx]);
+        resolve(JOKES[randomIdx].replaceAll('\\"', '"'));
       })
       .catch(error => {
         reject(error);
