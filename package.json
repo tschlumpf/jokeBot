@@ -18,11 +18,11 @@
   },
   "homepage": "https://github.com/tschlumpf/jokeBot#readme",
   "dependencies": {
-    "@types/node-telegram-bot-api": "^0.56.0",
-    "axios": "^0.26.1",
-    "dotenv": "^16.0.0",
-    "node-telegram-bot-api": "^0.56.0",
-    "winston": "^3.6.0"
+    "@types/node-telegram-bot-api": "0.56.0",
+    "axios": "0.26.1",
+    "dotenv": "16.0.0",
+    "node-telegram-bot-api": "0.56.0",
+    "winston": "3.6.0"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.17.0",
