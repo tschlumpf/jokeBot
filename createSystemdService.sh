@@ -3,6 +3,7 @@ output="[Unit]
 Description=jokeBot
 
 [Service]
+User=$(whoami)
 Type=simple
 WorkingDirectory=$PWD
 ExecStart=$(which node) .
