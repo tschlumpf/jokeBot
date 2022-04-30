@@ -8,6 +8,7 @@ const logger = winston.createLogger({
     new winston.transports.Console({
       format: winston.format.cli(),
     }),
+    new winston.transports.File({ filename: 'jokeBot.log' }),
   ],
 });
 
